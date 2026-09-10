@@ -1,0 +1,79 @@
+@model ShopViewModel
+@{
+    ViewData["Title"] = "Paketi";
+}
+<section class="page-heading">
+    <div>
+        <div class="eyebrow">PACK SHOP</div>
+        <h1>Awakening paketi</h1>
+        <p class="muted">Originalna pack-opening logika prenesena na SQL Server kolekciju.</p>
+    </div>
+    <div class="coin-chip">◈ @Model.Coins coina</div>
+</section>
+
+<section class="shop-hero panel">
+    <div class="pack-visual">
+        <img src="~/images/branding/logo-icon.png" alt="Awakening pack" />
+        <span>AWAKENING</span>
+    </div>
+    <div>
+        <div class="eyebrow">6 NASUMIČNIH KARATA</div>
+        <h2>Otvori novi paket</h2>
+        <p>
+            Paket košta <strong>@Model.PackCost coina</strong>.
+            Ako već posjedujete izvučenu kartu, dobijate <strong>1 coin</strong> nazad.
+        </p>
+        <form asp-action="OpenPack" method="post">
+            @if (Model.Coins < Model.PackCost)
+            {
+                <button class="button" type="submit" disabled>
+                    Otvori paket · @Model.PackCost ◈
+                </button>
+            }
+            else
+            {
+                <button class="button" type="submit">
+                    Otvori paket · @Model.PackCost ◈
+                </button>
+            }
+        </form>
+        @if (Model.Coins < Model.PackCost)
+        {
+            <p class="validation">Nedovoljno coina za paket.</p>
+        }
+    </div>
+</section>
+
+<section class="panel">
+    <div class="section-title">
+        <h2>Historija otvaranja</h2>
+        <span class="muted">zadnjih @Model.RecentOpenings.Count</span>
+    </div>
+
+    @if (Model.RecentOpenings.Count == 0)
+    {
+        <p class="muted">Još niste otvorili paket.</p>
+    }
+    else
+    {
+        <div class="pack-history">
+            @foreach (var opening in Model.RecentOpenings)
+            {
+                <article>
+                    <div>
+                        <strong>@opening.OpenedAtUtc.ToLocalTime().ToString("dd.MM.yyyy HH:mm")</strong>
+                        <small>-@opening.Cost coina · +@opening.DuplicateCoins od duplikata</small>
+                    </div>
+                    <div class="pack-thumbs">
+                        @foreach (var item in opening.Cards.OrderBy(x => x.Position))
+                        {
+                            <img src="@item.Card.ImagePath"
+                                 alt="@item.Card.Name"
+                                 title="@item.Card.Name@(item.WasDuplicate ? " · duplikat" : "")" />
+                        }
+                    </div>
+                </article>
+            }
+        </div>
+    }
+</section>

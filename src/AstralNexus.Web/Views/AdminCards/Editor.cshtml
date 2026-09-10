@@ -1,0 +1,61 @@
+@model CardEditViewModel
+@{
+    var editing = Model.Id.HasValue;
+    ViewData["Title"] = editing ? "Uredi kartu" : "Nova karta";
+}
+<section class="page-heading">
+    <div>
+        <div class="eyebrow">@(editing ? "UPDATE" : "CREATE") CARD</div>
+        <h1>@(editing ? "Uredi kartu" : "Dodaj novu kartu")</h1>
+        <p class="muted">Promjene se spremaju direktno u Microsoft SQL Server.</p>
+    </div>
+</section>
+
+<form class="panel admin-form"
+      asp-action="@(editing ? "Edit" : "Create")"
+      asp-route-id="@Model.Id"
+      method="post"
+      enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="validation"></div>
+
+    <div class="admin-form-grid">
+        <div class="form-fields">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name" class="validation"></span>
+
+            <label asp-for="Type"></label>
+            <input asp-for="Type" placeholder="Attack, Defense, mage, sentinel, effect_Attack..." />
+            <span asp-validation-for="Type" class="validation"></span>
+
+            <label asp-for="BaseValue"></label>
+            <input asp-for="BaseValue" />
+            <small class="muted">Koristite -99 za karte bez brojčane vrijednosti.</small>
+
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description" rows="8"></textarea>
+            <span asp-validation-for="Description" class="validation"></span>
+
+            <label asp-for="ImageFile"></label>
+            <input asp-for="ImageFile" type="file" accept=".png,.jpg,.jpeg,.webp" />
+            <span asp-validation-for="ImageFile" class="validation"></span>
+
+            <label class="checkbox-line">
+                <input asp-for="IsActive" />
+                <span>Aktivna karta</span>
+            </label>
+        </div>
+
+        <div class="card-preview panel inset">
+            <span class="eyebrow">PREVIEW</span>
+            <img src="@(string.IsNullOrWhiteSpace(Model.ExistingImagePath) ? "/images/branding/card-back.png" : Model.ExistingImagePath)"
+                 alt="Preview" />
+            <strong>@(string.IsNullOrWhiteSpace(Model.Name) ? "Nova karta" : Model.Name)</strong>
+        </div>
+    </div>
+
+    <div class="row-actions">
+        <button class="button" type="submit">@(editing ? "Spremi izmjene" : "Kreiraj kartu")</button>
+        <a class="button ghost" asp-action="Index">Odustani</a>
+    </div>
+</form>

@@ -1,0 +1,23 @@
+@model SettingsViewModel
+@{
+    ViewData["Title"] = "Postavke";
+}
+<section class="page-heading">
+    <div>
+        <div class="eyebrow">THEME SETTINGS</div>
+        <h1>Postavke</h1>
+        <p class="muted">Izbor izgleda korisničkog interfejsa.</p>
+    </div>
+</section>
+
+<form class="panel narrow" asp-action="Settings" method="post">
+    <div asp-validation-summary="All" class="validation"></div>
+
+    <label asp-for="Theme"></label>
+    <select asp-for="Theme">
+        <option value="Dark">Tamna tema</option>
+        <option value="Light">Svijetla tema</option>
+    </select>
+
+    <button class="button" type="submit">Spremi postavke</button>
+</form>

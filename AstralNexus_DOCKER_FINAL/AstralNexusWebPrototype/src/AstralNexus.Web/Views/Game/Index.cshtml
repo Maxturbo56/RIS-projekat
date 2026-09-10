@@ -1,0 +1,220 @@
+@model GamePageViewModel
+@{
+    ViewData["Title"] = "Match Lab";
+}
+
+@if (Model.State is null)
+{
+    <section class="page-heading">
+        <div>
+            <div class="eyebrow">MATCH LAB</div>
+            <h1>Pokreni meč</h1>
+            <p class="muted">Browser verzija utility funkcija iz Unity GameScene-a.</p>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Odaberi validan špil</h2>
+        @if (Model.AvailableDecks.Count == 0)
+        {
+            <p>Nemate validan špil. Prvo kreirajte špil od 20 karata.</p>
+            <a class="button" asp-controller="Decks" asp-action="Create">Deck Builder</a>
+        }
+        else
+        {
+            <div class="deck-picker">
+                @foreach (var deck in Model.AvailableDecks)
+                {
+                    <form class="deck-choice" asp-action="Start" method="post">
+                        <input type="hidden" name="deckId" value="@deck.Id" />
+                        <div>
+                            <strong>@deck.Name</strong>
+                            <small>@deck.Cards.Count/20 karata</small>
+                        </div>
+                        <button class="button small" type="submit">Pokreni</button>
+                    </form>
+                }
+            </div>
+        }
+    </section>
+
+    <section class="feature-grid">
+        <article class="panel">
+            <h2>Draw / discard</h2>
+            <p>Špil se shuffle-a, početna ruka ima 6 karata, a ruka ne može preći 6.</p>
+        </article>
+        <article class="panel">
+            <h2>Health counter</h2>
+            <p>Oba igrača počinju sa 10 HP, kao u originalnom HealthCounter skriptu.</p>
+        </article>
+        <article class="panel">
+            <h2>Dice / coin</h2>
+            <p>Server generiše rezultat kocke 1–6 i bacanja novčića.</p>
+        </article>
+        <article class="panel">
+            <h2>Nagrada</h2>
+            <p>Pobjeda daje 20 coina; poraz daje 5 + bonus prema broju poteza.</p>
+        </article>
+    </section>
+}
+else
+{
+    var state = Model.State;
+
+    <section class="page-heading">
+        <div>
+            <div class="eyebrow">ACTIVE MATCH · TURN @state.Turn</div>
+            <h1>@state.DeckName</h1>
+            <p class="muted">@state.Message</p>
+        </div>
+        <form asp-action="Reset" method="post">
+            <button class="button danger small" type="submit">Reset meča</button>
+        </form>
+    </section>
+
+    @if (Model.BoardCard is not null)
+    {
+        <section class="board-event panel">
+            <img src="@Model.BoardCard.ImagePath" alt="@Model.BoardCard.Name" />
+            <div>
+                <div class="eyebrow">BOARD CARD</div>
+                <h2>@Model.BoardCard.Name</h2>
+                <p>@Model.BoardCard.Description</p>
+            </div>
+        </section>
+    }
+
+    <section class="match-status-grid">
+        <article class="health-card">
+            <span>PLAYER 1</span>
+            <strong>@state.PlayerHp HP</strong>
+            <div class="health-actions">
+                <form asp-action="ChangeHealth" method="post">
+                    <input type="hidden" name="target" value="player" />
+                    <input type="hidden" name="delta" value="-1" />
+                    <button type="submit">−</button>
+                </form>
+                <form asp-action="ChangeHealth" method="post">
+                    <input type="hidden" name="target" value="player" />
+                    <input type="hidden" name="delta" value="1" />
+                    <button type="submit">+</button>
+                </form>
+            </div>
+        </article>
+
+        <article class="match-center panel">
+            <div>
+                <span>ŠPIL</span>
+                <strong>@state.DrawPile.Count</strong>
+            </div>
+            <div>
+                <span>RUKA</span>
+                <strong>@state.Hand.Count/6</strong>
+            </div>
+            <div>
+                <span>DISCARD</span>
+                <strong>@state.Discard.Count</strong>
+            </div>
+            <div>
+                <span>POTEZI</span>
+                <strong>@state.TurnsPlayed</strong>
+            </div>
+        </article>
+
+        <article class="health-card opponent">
+            <span>PLAYER 2</span>
+            <strong>@state.OpponentHp HP</strong>
+            <div class="health-actions">
+                <form asp-action="ChangeHealth" method="post">
+                    <input type="hidden" name="target" value="opponent" />
+                    <input type="hidden" name="delta" value="-1" />
+                    <button type="submit">−</button>
+                </form>
+                <form asp-action="ChangeHealth" method="post">
+                    <input type="hidden" name="target" value="opponent" />
+                    <input type="hidden" name="delta" value="1" />
+                    <button type="submit">+</button>
+                </form>
+            </div>
+        </article>
+    </section>
+
+    <section class="match-tools panel">
+        <form asp-action="Draw" method="post">
+            <button class="button" type="submit">Draw card</button>
+        </form>
+        <form asp-action="EndTurn" method="post">
+            <button class="button secondary" type="submit">End turn</button>
+        </form>
+        <form asp-action="RollDice" method="post">
+            <button class="button ghost" type="submit">Kocka @(state.LastDice?.ToString() ?? "—")</button>
+        </form>
+        <form asp-action="FlipCoin" method="post">
+            <button class="button ghost" type="submit">Novčić @(state.LastCoin ?? "—")</button>
+        </form>
+    </section>
+
+    <section>
+        <div class="section-title">
+            <h2>Ruka</h2>
+            <span class="muted">Klik na discard šalje kartu u discard pile.</span>
+        </div>
+        @if (Model.HandCards.Count == 0)
+        {
+            <div class="panel"><p class="muted">Ruka je prazna.</p></div>
+        }
+        else
+        {
+            <div class="hand-grid">
+                @foreach (var card in Model.HandCards)
+                {
+                    <article class="hand-card">
+                        <img src="@card.ImagePath" alt="@card.Name" />
+                        <div>
+                            <strong>@card.Name</strong>
+                            <small>@card.Type · @(card.BaseValue == -99 ? "—" : card.BaseValue)</small>
+                        </div>
+                        <form asp-action="Discard" method="post">
+                            <input type="hidden" name="cardId" value="@card.Id" />
+                            <button class="button danger small" type="submit">Discard</button>
+                        </form>
+                    </article>
+                }
+            </div>
+        }
+    </section>
+
+    <section class="two-column">
+        <div class="panel">
+            <h2>Discard pile</h2>
+            @if (Model.DiscardCards.Count == 0)
+            {
+                <p class="muted">Nema odbačenih karata.</p>
+            }
+            else
+            {
+                <div class="discard-strip">
+                    @foreach (var card in Model.DiscardCards.TakeLast(8))
+                    {
+                        <img src="@card.ImagePath" alt="@card.Name" title="@card.Name" />
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="panel">
+            <h2>Završi meč</h2>
+            <p class="muted">Rezultat i coin nagrada se trajno upisuju u SQL Server.</p>
+            <div class="row-actions">
+                <form asp-action="Finish" method="post">
+                    <input type="hidden" name="result" value="Win" />
+                    <button class="button" type="submit">Pobjeda</button>
+                </form>
+                <form asp-action="Finish" method="post">
+                    <input type="hidden" name="result" value="Loss" />
+                    <button class="button danger" type="submit">Poraz</button>
+                </form>
+            </div>
+        </div>
+    </section>
+}

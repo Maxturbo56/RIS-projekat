@@ -1,0 +1,68 @@
+@model DeckEditorViewModel
+@{
+    var editing = Model.Id.HasValue;
+    ViewData["Title"] = editing ? "Uredi špil" : "Novi špil";
+}
+<section class="page-heading">
+    <div>
+        <div class="eyebrow">DECK BUILDER</div>
+        <h1>@(editing ? "Uredi špil" : "Kreiraj novi špil")</h1>
+        <p class="muted">Odaberite tačno 20 različitih karata iz svoje kolekcije.</p>
+    </div>
+</section>
+
+<section class="rules-panel">
+    <strong>Pravila iz originalnog Unity DeckBuilderController-a:</strong>
+    <span>20 karata tačno</span>
+    <span>najviše 3 × value 3</span>
+    <span>najviše 8 × Mage</span>
+    <span>najviše 1 × Sentinel</span>
+    <span>najviše 5 × Effect</span>
+</section>
+
+<form asp-action="@(editing ? "Edit" : "Create")"
+      asp-route-id="@Model.Id"
+      method="post"
+      class="deck-builder-form">
+    <div asp-validation-summary="All" class="validation panel"></div>
+
+    <div class="deck-name-row panel">
+        <div class="field-grow">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" placeholder="npr. Jade Vanguard" />
+            <span asp-validation-for="Name" class="validation"></span>
+        </div>
+        <div class="selected-counter">
+            Odabrano: <strong>@Model.SelectedCardIds.Count / 20</strong>
+        </div>
+        <button class="button" type="submit">@(editing ? "Spremi izmjene" : "Spremi špil")</button>
+    </div>
+
+    <section class="select-card-grid">
+        @foreach (var owned in Model.OwnedCards)
+        {
+            var selected = Model.SelectedCardIds.Contains(owned.CardId);
+            <label class="select-card @(selected ? "selected" : "")">
+                @if (selected)
+                {
+                    <input type="checkbox" name="SelectedCardIds" value="@owned.CardId" checked />
+                }
+                else
+                {
+                    <input type="checkbox" name="SelectedCardIds" value="@owned.CardId" />
+                }
+                <img src="@owned.Card.ImagePath" alt="@owned.Card.Name" loading="lazy" />
+                <span class="select-check">✓</span>
+                <div>
+                    <strong>@owned.Card.Name</strong>
+                    <small>@owned.Card.Type · @(owned.Card.BaseValue == -99 ? "—" : owned.Card.BaseValue)</small>
+                </div>
+            </label>
+        }
+    </section>
+
+    <div class="sticky-save">
+        <a class="button ghost" asp-action="Index">Odustani</a>
+        <button class="button" type="submit">@(editing ? "Spremi izmjene" : "Spremi špil")</button>
+    </div>
+</form>

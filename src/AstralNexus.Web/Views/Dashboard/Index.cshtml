@@ -1,0 +1,103 @@
+@model DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<section class="page-heading">
+    <div>
+        <div class="eyebrow">KORISNIČKA PLOČA</div>
+        <h1>Dobrodošao, @Model.UserName</h1>
+    </div>
+    <div class="coin-chip">◈ @Model.Coins coina</div>
+</section>
+
+<section class="stat-grid">
+    <article class="stat-card">
+        <span>Kolekcija</span>
+        <strong>@Model.OwnedCards</strong>
+        <small>@Model.TotalCardCopies ukupnih kopija</small>
+    </article>
+    <article class="stat-card">
+        <span>Špilovi</span>
+        <strong>@Model.Decks</strong>
+        <small>@Model.ValidDecks validnih</small>
+    </article>
+    <article class="stat-card">
+        <span>Pobjede</span>
+        <strong>@Model.Wins</strong>
+        <small>završeni mečevi</small>
+    </article>
+    <article class="stat-card">
+        <span>Porazi</span>
+        <strong>@Model.Losses</strong>
+        <small>završeni mečevi</small>
+    </article>
+</section>
+
+<section class="quick-grid">
+    <a class="quick-card" asp-controller="Collection" asp-action="Index">
+        <span class="quick-icon">01</span>
+        <h2>Kolekcija</h2>
+        <p>Pregled, pretraga i filtriranje osvojenih karata.</p>
+    </a>
+    <a class="quick-card" asp-controller="Decks" asp-action="Index">
+        <span class="quick-icon">02</span>
+        <h2>Deck Builder</h2>
+        <p>Kreiranje, učitavanje, izmjena i brisanje špilova.</p>
+    </a>
+    <a class="quick-card" asp-controller="Shop" asp-action="Index">
+        <span class="quick-icon">03</span>
+        <h2>Otvori paket</h2>
+        <p>6 nasumičnih karata za 100 coina, duplikati vraćaju 1 coin.</p>
+    </a>
+    <a class="quick-card" asp-controller="Game" asp-action="Index">
+        <span class="quick-icon">04</span>
+        <h2>Match Lab</h2>
+        <p>Draw, discard, health, potezi, kocka i bacanje novčića.</p>
+    </a>
+</section>
+
+<div class="two-column">
+    <section class="panel">
+        <div class="section-title">
+            <h2>Posljednji mečevi</h2>
+            <a asp-controller="Game" asp-action="Index">Novi meč →</a>
+        </div>
+
+        @if (Model.RecentMatches.Count == 0)
+        {
+            <p class="muted">Još nema odigranih mečeva.</p>
+        }
+        else
+        {
+            <div class="data-list">
+                @foreach (var match in Model.RecentMatches)
+                {
+                    <div class="data-row">
+                        <span class="result-badge @(match.Result == "Win" ? "win" : "loss")">@match.Result</span>
+                        <div>
+                            <strong>@(match.Deck?.Name ?? "Obrisani špil")</strong>
+                            <small>@match.TurnsPlayed poteza · +@match.CoinsAwarded coina</small>
+                        </div>
+                        <time>@match.PlayedAtUtc.ToLocalTime().ToString("dd.MM.yyyy")</time>
+                    </div>
+                }
+            </div>
+        }
+    </section>
+
+    <section class="panel">
+        <div class="section-title">
+            <h2>Nedavno u kolekciji</h2>
+            <a asp-controller="Collection" asp-action="Index">Sve karte →</a>
+        </div>
+        <div class="mini-card-row">
+            @foreach (var card in Model.FeaturedCards)
+            {
+                <figure>
+                    <img src="@card.ImagePath" alt="@card.Name" />
+                    <figcaption>@card.Name</figcaption>
+                </figure>
+            }
+        </div>
+    </section>
+</div>

@@ -1,0 +1,994 @@
+[
+  {
+    "externalKey": "ahlimana",
+    "name": "ahlimana",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Select a defense type card on your board and increase it´s value by 2. Until the end of this turn´s damage calculation gain 2 extra health points. (you can not gain there health points if your health is already at 10)",
+    "imagePath": "/images/cards/001-ahlimana.png"
+  },
+  {
+    "externalKey": "Akane",
+    "name": "Akane",
+    "type": "Attack",
+    "baseValue": 2,
+    "description": "Akane became a vibrant conduit of the lands.\nHailing from the planes of Jade she has inner turmoil.\nWill she be able to defeat her own jealous nature or be consumed by it?",
+    "imagePath": "/images/cards/002-akane.png"
+  },
+  {
+    "externalKey": "Alyna",
+    "name": "Alyna",
+    "type": "effect_Attack",
+    "baseValue": 6,
+    "description": "To play this card you must discard 2 cards from your hand.",
+    "imagePath": "/images/cards/003-alyna.png"
+  },
+  {
+    "externalKey": "Amaya invocation",
+    "name": "Amaya invocation",
+    "type": "sentinel",
+    "baseValue": -99,
+    "description": "(Sentinel) If you have “Amaya the Eternal Sunlight” on your board, increase the value of all cards on your board by 2.",
+    "imagePath": "/images/cards/004-amaya-invocation.png"
+  },
+  {
+    "externalKey": "Amaya the light fusion",
+    "name": "Amaya light fusion",
+    "type": "effect_Attack",
+    "baseValue": 0,
+    "description": "Search your deck for a card or discard pile for a card that contains \"Amaya\" in it´s name. This card´s effect can be activated only once per game.",
+    "imagePath": "/images/cards/005-amaya-light-fusion.png"
+  },
+  {
+    "externalKey": "Amaya",
+    "name": "Amaya",
+    "type": "Attack",
+    "baseValue": 3,
+    "description": "Born from a cataclysm of flame and fury, she emerged as more than a mortal echo of the stars, forged to stand eternal.\nHer presence kindles hope, a beacon for all those lost in the endless.",
+    "imagePath": "/images/cards/006-amaya.png"
+  },
+  {
+    "externalKey": "amber of fortitued",
+    "name": "amber of fortitude",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Select a card on your board. It can not be removed until the end of next turn’s damage calculation.",
+    "imagePath": "/images/cards/007-amber-of-fortitude.png"
+  },
+  {
+    "externalKey": "Ana",
+    "name": "Ana",
+    "type": "effect_Attack",
+    "baseValue": 1,
+    "description": "Your opponent can not play a mage card for the rest of this turn.",
+    "imagePath": "/images/cards/008-ana.png"
+  },
+  {
+    "externalKey": "Anthamos",
+    "name": "Anthamos",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Choose a random card from your opponent’s hand, they must discard that card. If you have a mage card in your hand, choose an additional card for them to discard.",
+    "imagePath": "/images/cards/009-anthamos.png"
+  },
+  {
+    "externalKey": "Arcane shield",
+    "name": "arcane shield",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Gain 2 shield. If a Mage card is in your hand gain an additional 1 shield. (Shield is treated as health points, but at the end of this turn’s damage calculation you lose all shield you gained, from all sources).",
+    "imagePath": "/images/cards/010-arcane-shield.png"
+  },
+  {
+    "externalKey": "Ares vigil",
+    "name": "Ares vigil",
+    "type": "sentinel",
+    "baseValue": -99,
+    "description": "(Sentinel) If you have “Ares the Infinite’s Spear” on your board, remove up to 2 cards from your opponent’s board.",
+    "imagePath": "/images/cards/011-ares-vigil.png"
+  },
+  {
+    "externalKey": "Ares",
+    "name": "Ares",
+    "type": "Attack",
+    "baseValue": 3,
+    "description": "Anata’s shining beacon of hope.\nA leader of the fiercest warriors dedicated to protecting the vault of the old world.",
+    "imagePath": "/images/cards/012-ares.png"
+  },
+  {
+    "externalKey": "Astral Evolution",
+    "name": "Astral evolution",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Play this card only if you control at least 2 other cards on your board. Select 1 card on your board. Search the top 5 cards of your deck for a card with a higher value or a different type than the selected card. Play it, replacing the original card.",
+    "imagePath": "/images/cards/013-astral-evolution.png"
+  },
+  {
+    "externalKey": "Asya",
+    "name": "Asya",
+    "type": "effect_Defense",
+    "baseValue": 0,
+    "description": "While this card is on the board, every time you replace a card on your board increase this card’s value by 2.",
+    "imagePath": "/images/cards/014-asya.png"
+  },
+  {
+    "externalKey": "At the end",
+    "name": "at the end",
+    "type": "mage",
+    "baseValue": -102,
+    "description": "Immediatelly after you play this card calculate the damage you would take for the turn. if you are about to lose during this turn´s damage calculation the game continues and you are left on 1 health point.",
+    "imagePath": "/images/cards/015-at-the-end.png"
+  },
+  {
+    "externalKey": "Atlas",
+    "name": "Atlas",
+    "type": "Defense",
+    "baseValue": 3,
+    "description": "An old friend of Endal, a mentor.\nAnd a traitor — at least in the eyes of others.\nHe was there when Ichiko lost her eyes and when Lambert took what was never his.\nThe true protector of Vahlen.",
+    "imagePath": "/images/cards/016-atlas.png"
+  },
+  {
+    "externalKey": "Axe to meet you",
+    "name": "axe to meet you",
+    "type": "sentinel",
+    "baseValue": -99,
+    "description": "(Sentinel) If you have \"Diarmuid the Rage\" on your board, you may decrease your life points until you are left with at least 1. Increase \"Diarmuid the Rage\"’s value by the amount of health points you lost.",
+    "imagePath": "/images/cards/017-axe-to-meet-you.png"
+  },
+  {
+    "externalKey": "Boo bees",
+    "name": "boo bees",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Swap the values of any two cards on your board. If a Mage card is in your hand you may swap the values with your opponent’s card values.",
+    "imagePath": "/images/cards/018-boo-bees.png"
+  },
+  {
+    "externalKey": "Chad",
+    "name": "Chad",
+    "type": "effect_Attack",
+    "baseValue": 1,
+    "description": "Pick a card on your board and increase its value by 3.",
+    "imagePath": "/images/cards/019-chad.png"
+  },
+  {
+    "externalKey": "Convincer cannon",
+    "name": "Convincer cannon",
+    "type": "effect",
+    "baseValue": 1,
+    "description": "While it is on the board, this card changes its type at the end of every damage calculation alternating between the attack and defense types. While this card is in the defense type it has a value of 1. While it is in the attack type it has a value of 6.",
+    "imagePath": "/images/cards/020-convincer-cannon.png"
+  },
+  {
+    "externalKey": "Courage and honour",
+    "name": "Courage and Honour",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "During this turn´s damage calculation reduce all opponent attack type card values by 2.",
+    "imagePath": "/images/cards/021-courage-and-honour.png"
+  },
+  {
+    "externalKey": "craftsmanship",
+    "name": "craftsmanship",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "A farmer, long before he was a warrior.\nHis horns were used to protect those unable to defend themselves.\nNow he lives a peaceful life, until destiny calls once more.",
+    "imagePath": "/images/cards/022-craftsmanship.png"
+  },
+  {
+    "externalKey": "Debil",
+    "name": "Debil",
+    "type": "Defense",
+    "baseValue": 2,
+    "description": "A creature so small it could fit in your hand, yet Sylvie guards it like a crown jewel.\nNo one knows if it’s a weapon, a familiar, or just… weird.",
+    "imagePath": "/images/cards/023-debil.png"
+  },
+  {
+    "externalKey": "Diarmuid",
+    "name": "Diarmuid",
+    "type": "Attack",
+    "baseValue": 3,
+    "description": "\"AAAAAAAAAAAAAAAARGH!!!\"\nrage continues",
+    "imagePath": "/images/cards/024-diarmuid.png"
+  },
+  {
+    "externalKey": "Dor",
+    "name": "Dor",
+    "type": "Attack",
+    "baseValue": 2,
+    "description": "A farmer, long before he was a warrior.\nHis horns were used to protect those unable to defend themselves.\nNow he lives a peaceful life, until destiny calls once more.",
+    "imagePath": "/images/cards/025-dor.png"
+  },
+  {
+    "externalKey": "eclipse of gold",
+    "name": "eclipse of gold",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "When you play this card, reveal the top card of your deck. If it is a Mage card activate its effect immediately.",
+    "imagePath": "/images/cards/026-eclipse-of-gold.png"
+  },
+  {
+    "externalKey": "Elemental Surge",
+    "name": "elemental surge",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Increase the value of a card on your board by 1. If a Mage card is in your hand increase another card’s value by 1.",
+    "imagePath": "/images/cards/027-elemental-surge.png"
+  },
+  {
+    "externalKey": "Endal Might",
+    "name": "Endal Might",
+    "type": "sentinel",
+    "baseValue": -99,
+    "description": "(Sentinel) If you have \"Paladin Endal\" on your board, increase it’s value by 2. It now counts as both an Attack and a Defense card.",
+    "imagePath": "/images/cards/028-endal-might.png"
+  },
+  {
+    "externalKey": "Endal",
+    "name": "Endal",
+    "type": "Defense",
+    "baseValue": 3,
+    "description": "Endal is the shining warrior of Vahlen’s forces. The leader the people need and believe in. His mighty sword holds thousands of lives and his heart knows no bounds in love for his lands.",
+    "imagePath": "/images/cards/029-endal.png"
+  },
+  {
+    "externalKey": "Enemy",
+    "name": "Enemy",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "If you have less than 4 health points, remove all cards from both boards.",
+    "imagePath": "/images/cards/030-enemy.png"
+  },
+  {
+    "externalKey": "Energy unleash",
+    "name": "Energy Unleash",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "If you have 7 Mage cards in your discard pile, select a card on your board and increase its value by 10. If you have 'Melody the Energy Scribe' on your board, return a Mage card from your discard pile to your hand. (Excluding this card).",
+    "imagePath": "/images/cards/031-energy-unleash.png"
+  },
+  {
+    "externalKey": "Enid",
+    "name": "Enid",
+    "type": "Defense",
+    "baseValue": 2,
+    "description": "The bear mother; She has the spirits of her ancestors locked away so they may not witness the atrocities their people are capable of.\nIf provoked she turns into a bear as tall and wide as the mountains she calls home.",
+    "imagePath": "/images/cards/032-enid.png"
+  },
+  {
+    "externalKey": "Enterrna",
+    "name": "Enterrna",
+    "type": "Attack",
+    "baseValue": 0,
+    "description": "An ancient demon who cursed princess Ahlimana, and now roams the land in search of victims too weak to deny her charms.",
+    "imagePath": "/images/cards/033-enterrna.png"
+  },
+  {
+    "externalKey": "Evade",
+    "name": "Evade",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Gain 1 shield, your opponent’s next card with a value has a value of 0. (Shield is treated as health points, but at the end of this turn’s damage calculation you lose all shield you gained from all sources).",
+    "imagePath": "/images/cards/034-evade.png"
+  },
+  {
+    "externalKey": "Fair Windes",
+    "name": "Fair winds",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Both players draw 2 cards from their deck.",
+    "imagePath": "/images/cards/035-fair-winds.png"
+  },
+  {
+    "externalKey": "Fate whisper",
+    "name": "Fate Whisper",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "(Board) Add +1 to all dice roll results for your card effects. If you fail a coin flip, you may flip again once.",
+    "imagePath": "/images/cards/036-fate-whisper.png"
+  },
+  {
+    "externalKey": "Fauhaux Feather",
+    "name": "Feather of the fauhaux",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Remove a card from your board and restore health points equal to half it´s value, rounded down.",
+    "imagePath": "/images/cards/037-feather-of-the-fauhaux.png"
+  },
+  {
+    "externalKey": "Flowers of the sea",
+    "name": "Flowers of the sea",
+    "type": "sentinel",
+    "baseValue": -99,
+    "description": "(Sentinel) If you have \"Neume the Flower of the New Sea\" on your board, track the next 5 cards your opponent draws. For each of those draws, roll a D3. On a roll of 3, your opponent takes 1 damage.",
+    "imagePath": "/images/cards/038-flowers-of-the-sea.png"
+  },
+  {
+    "externalKey": "Fluffy Concoction",
+    "name": "fluffy concoction",
+    "type": "mage",
+    "baseValue": -103,
+    "description": "(Board) This card starts with 3 “Fluff” tokens on it. During damage calculation, you may remove any number of “Fluff” tokens from it to gain that much shield. (Shield is treated as health points, but at the end of this turn’s damage calculation you lose all shield you gained, from all sources).",
+    "imagePath": "/images/cards/039-fluffy-concoction.png"
+  },
+  {
+    "externalKey": "From time",
+    "name": "From time",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Return all cards played this turn, excluding this card, to their respective hands and restore 2 health points.",
+    "imagePath": "/images/cards/040-from-time.png"
+  },
+  {
+    "externalKey": "Fush Ion overdrie",
+    "name": "fush ion",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "(Board) Every time you play a mage card, until the end of the current turn’s damage calculation all cards on your board have their values increased by 1.",
+    "imagePath": "/images/cards/041-fush-ion.png"
+  },
+  {
+    "externalKey": "Gobo No",
+    "name": "Gobo no",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "If you haven´t played a mage card during this turn, when your opponent plays a card from their hand you may play this card and negate the activation of your opponent´s card, then discard both cards.",
+    "imagePath": "/images/cards/042-gobo-no.png"
+  },
+  {
+    "externalKey": "Golden Sun",
+    "name": "Golden Sun",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "(Board) At the end of every damage calculation, you restore 1 health point.",
+    "imagePath": "/images/cards/043-golden-sun.png"
+  },
+  {
+    "externalKey": "Gyhran",
+    "name": "Gyhran",
+    "type": "Atack",
+    "baseValue": 2,
+    "description": "A specter, death itself. Once a long time ago, Gyhran was a captain of the rifle gauntlets until he understood the soul smiths do not know with what they are interfering.",
+    "imagePath": "/images/cards/044-gyhran.png"
+  },
+  {
+    "externalKey": "Happy lonchich",
+    "name": "Happy Lonchich",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "discard a card from your hand. Then return 1 card from either your discard pile or your board to your hand.",
+    "imagePath": "/images/cards/045-happy-lonchich.png"
+  },
+  {
+    "externalKey": "Heart and soul",
+    "name": "heart and soul",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "if all cards with a value on your board are of the attack type, reduce all damage you would take during this turn´s damage calculation to zero.",
+    "imagePath": "/images/cards/046-heart-and-soul.png"
+  },
+  {
+    "externalKey": "Hjolthar",
+    "name": "Hjolthar",
+    "type": "effect_Defense",
+    "baseValue": 0,
+    "description": "During this turn’s damage calculation all damage you would take is halved.",
+    "imagePath": "/images/cards/047-hjolthar.png"
+  },
+  {
+    "externalKey": "Horacio the bard",
+    "name": "horacio the bard",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "(BOARD) If this card’s adjacent board spaces are filled with cards with a value increase both their values by 2.",
+    "imagePath": "/images/cards/048-horacio-the-bard.png"
+  },
+  {
+    "externalKey": "Hu´arya",
+    "name": "Hu´Arya",
+    "type": "Defese",
+    "baseValue": 2,
+    "description": "Faster than thought, wilder than the wind - Hu´arya dances through battle with a laugh on her lips and both guns blazing. Where she leaps, chaos follows, and only the quickest survive her storm of bullets.",
+    "imagePath": "/images/cards/049-hu-arya.png"
+  },
+  {
+    "externalKey": "Ichiko",
+    "name": "Ichiko",
+    "type": "Attack",
+    "baseValue": 2,
+    "description": "Her scimitar holds the soul of her long gone husband.\nHe aids Ichiko on her quest for vengeance with his eyes, and she holds the love of her life on the edge of her blade.",
+    "imagePath": "/images/cards/050-ichiko.png"
+  },
+  {
+    "externalKey": "Inhib",
+    "name": "Inhib",
+    "type": "effect_Defense",
+    "baseValue": 1,
+    "description": "During damage calculation, if this card is on your board decrease all card values on your board by 1 and gain 3 shield. (Shield is treated like HP, but at the end of this turn’s damage calculation you lose all shield you gained, from all sources).",
+    "imagePath": "/images/cards/051-inhib.png"
+  },
+  {
+    "externalKey": "Inikliona winter cold",
+    "name": "inikliona winter cold",
+    "type": "sentinel",
+    "baseValue": -99,
+    "description": "(Sentinel) If you have \"Inikliona the Ice\" on your board, select a space on your opponent’s board. It becomes frozen and while \"Inikliona the Ice\" is on your board no cards can be played to it. Remove any card that was in it before playing this card.",
+    "imagePath": "/images/cards/052-inikliona-winter-cold.png"
+  },
+  {
+    "externalKey": "Inikliona",
+    "name": "Inikliona",
+    "type": "Defense",
+    "baseValue": 3,
+    "description": "Inikliona is the frozen queen of the north. The mother of Amaya, Inikliona’s sister, cursed her to live without the warmth of fire. She learned to accept the warmth of the eternal cold.",
+    "imagePath": "/images/cards/053-inikliona.png"
+  },
+  {
+    "externalKey": "Insita",
+    "name": "Insita",
+    "type": "effect_Attack",
+    "baseValue": 1,
+    "description": "Select a card on your opponent’s board with a modified value and remove it.",
+    "imagePath": "/images/cards/054-insita.png"
+  },
+  {
+    "externalKey": "Isaac",
+    "name": "Isaac",
+    "type": "Defense",
+    "baseValue": 2,
+    "description": "Isa’ac does not bow, he does not falter.\nHe is the Hundred’s bulwark, the kingdom’s judgment.",
+    "imagePath": "/images/cards/055-isaac.png"
+  },
+  {
+    "externalKey": "Isylda",
+    "name": "Isylda",
+    "type": "Defense",
+    "baseValue": 2,
+    "description": "“The shaper of rocks and earth, the tamer of sand dunes and the wind.\nIsylda is a conduit of power for the lands themselves.”",
+    "imagePath": "/images/cards/056-isylda.png"
+  },
+  {
+    "externalKey": "Jade Sentinel",
+    "name": "Jade Sentinel",
+    "type": "effect_Defense",
+    "baseValue": 8,
+    "description": "To play this card you must discard 3 cards from your hand.",
+    "imagePath": "/images/cards/057-jade-sentinel.png"
+  },
+  {
+    "externalKey": "Joe the menace",
+    "name": "Joe the menace",
+    "type": "effect_Attack",
+    "baseValue": 0,
+    "description": "When this card is replaced or removed from the board you take 2 damage and draw a card.",
+    "imagePath": "/images/cards/058-joe-the-menace.png"
+  },
+  {
+    "externalKey": "Juy",
+    "name": "Juy",
+    "type": "effect_Attack",
+    "baseValue": 1,
+    "description": "Search your deck for a card of the same type as this card, but a different value and add it to your hand.",
+    "imagePath": "/images/cards/059-juy.png"
+  },
+  {
+    "externalKey": "Kaito",
+    "name": "Kaito",
+    "type": "effect_Attack",
+    "baseValue": 1,
+    "description": "When this card is played, increase its value by 1 for each card you have in your hand.",
+    "imagePath": "/images/cards/060-kaito.png"
+  },
+  {
+    "externalKey": "Kieran",
+    "name": "Kieran",
+    "type": "effect_Defense",
+    "baseValue": 1,
+    "description": "At the beginning of a turn, while this card is on the board, you may flip a coin. If heads deal 1 damage to your opponent.",
+    "imagePath": "/images/cards/061-kieran.png"
+  },
+  {
+    "externalKey": "Kuju",
+    "name": "Kuju",
+    "type": "effect_Defense",
+    "baseValue": 0,
+    "description": "This card’s value is determined by the roll of a six sided die.",
+    "imagePath": "/images/cards/062-kuju.png"
+  },
+  {
+    "externalKey": "Kyria",
+    "name": "Kyria",
+    "type": "effect_Attack",
+    "baseValue": 0,
+    "description": "During damage calculation, if you deal damage to your opponent, and this card is on the board, heal for 2.",
+    "imagePath": "/images/cards/063-kyria.png"
+  },
+  {
+    "externalKey": "Lambert Arcanium",
+    "name": "Lambert the arcanium Master",
+    "type": "effect_Attack",
+    "baseValue": 0,
+    "description": "You may play this card only if you have less than 5 health points. when this card is played remove all other attack type cards from your board. This card´s value becomes equal to the result of adding up all the values of the removed cards.",
+    "imagePath": "/images/cards/064-lambert-the-arcanium-master.png"
+  },
+  {
+    "externalKey": "Lambert",
+    "name": "Lambert",
+    "type": "Attack",
+    "baseValue": 2,
+    "description": "Lambert was a marvelous scientist before Arcana Zero.\nNow he is a vengeful spirit with a fiery thirst for vengeance.",
+    "imagePath": "/images/cards/065-lambert.png"
+  },
+  {
+    "externalKey": "Loss of sense",
+    "name": "loss of sense",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Remove a mage card that is on your opponent’s board.",
+    "imagePath": "/images/cards/066-loss-of-sense.png"
+  },
+  {
+    "externalKey": "Marcy",
+    "name": "Marcy",
+    "type": "Attack",
+    "baseValue": 2,
+    "description": "Nobody knows her true name, at the end of the day not many even get to the \"Marcy\" before laying slain at her musket’s call.",
+    "imagePath": "/images/cards/067-marcy.png"
+  },
+  {
+    "externalKey": "Melody",
+    "name": "Melody",
+    "type": "effect_Defense",
+    "baseValue": 1,
+    "description": "When this card is played, its value becomes equal to the number of Mage cards in your discard pile.",
+    "imagePath": "/images/cards/068-melody.png"
+  },
+  {
+    "externalKey": "Meyra",
+    "name": "Meyra",
+    "type": "effect_Attack",
+    "baseValue": 0,
+    "description": "Before this turn’s damage calculation, after your opponent has finished playing their cards, you may play 1 Mage card from your hand. (Even if you have already played a Mage card this turn)",
+    "imagePath": "/images/cards/069-meyra.png"
+  },
+  {
+    "externalKey": "Mirage",
+    "name": "Mirage",
+    "type": "effect_Attack",
+    "baseValue": 1,
+    "description": "If this card is discarded from your hand or deck due to an opponent’s card effect they take 3 damage.",
+    "imagePath": "/images/cards/070-mirage.png"
+  },
+  {
+    "externalKey": "Miyu",
+    "name": "Miyu",
+    "type": "effect_Defense",
+    "baseValue": 0,
+    "description": "Discard 1 card to play this card. You may play this card onto your opponent’s board as if it were your own.",
+    "imagePath": "/images/cards/071-miyu.png"
+  },
+  {
+    "externalKey": "Muhreem",
+    "name": "Muhreem",
+    "type": "effect_Attack",
+    "baseValue": 1,
+    "description": "Shuffle a card from your opponent’s board to their deck.",
+    "imagePath": "/images/cards/072-muhreem.png"
+  },
+  {
+    "externalKey": "mystic",
+    "name": "mystic",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Select a mage card in your opponent’s discard pile. This card’s effect becomes the same as the effect of the chosen mage card.",
+    "imagePath": "/images/cards/073-mystic.png"
+  },
+  {
+    "externalKey": "Nattalie the reader",
+    "name": "Nattalie the reader",
+    "type": "effect_Defense",
+    "baseValue": 1,
+    "description": "draw 2 cards from the top of your deck.",
+    "imagePath": "/images/cards/074-nattalie-the-reader.png"
+  },
+  {
+    "externalKey": "Necromancer",
+    "name": "Necromancer",
+    "type": "mage_Attack",
+    "baseValue": -100,
+    "description": "Every time you discard a card from your hand or deck this card gains 1 stack of 'Malevolence'. During every damage calculation add up the number of 'Malevolence' stacks on this card to your attack score.",
+    "imagePath": "/images/cards/075-necromancer.png"
+  },
+  {
+    "externalKey": "Neume",
+    "name": "Neume",
+    "type": "effect_Defense",
+    "baseValue": 0,
+    "description": "Discard 1 card from your hand to deal 2 damage to your opponent.",
+    "imagePath": "/images/cards/076-neume.png"
+  },
+  {
+    "externalKey": "Neyla Programming",
+    "name": "Neyla Programming",
+    "type": "sentinel",
+    "baseValue": -99,
+    "description": "(Sentinel) If you have \"Neyla the Machina\" on your board, then after each damage calculation, look at the top 3 cards of your deck and return them in any order. This effect only applies while \"Neyla the Machina\" is on your board.",
+    "imagePath": "/images/cards/077-neyla-programming.png"
+  },
+  {
+    "externalKey": "Neyla",
+    "name": "Neyla",
+    "type": "Defense",
+    "baseValue": 3,
+    "description": "Neyla was a prodigal child in the old world. Now an experienced engineer she developed her own way of fighting the forces of vengeance.",
+    "imagePath": "/images/cards/078-neyla.png"
+  },
+  {
+    "externalKey": "Nikolina",
+    "name": "Nikolina",
+    "type": "effect_Defense",
+    "baseValue": 0,
+    "description": "While this card is on the board during damage calculation, if your defense is higher than your opponent’s attack, inflict damage to your opponent equal to the difference.",
+    "imagePath": "/images/cards/079-nikolina.png"
+  },
+  {
+    "externalKey": "Oppsie",
+    "name": "Oppsie",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "(BOARD) Every time you play a card, flip a coin. if you get heads reduce the value of a card on your oppnent´s board by 2; if you get tails you lose 1 health point. if you have \"joe the menace\" on your board treat every coin flip as a \"heads\".",
+    "imagePath": "/images/cards/080-oppsie.png"
+  },
+  {
+    "externalKey": "Overhack",
+    "name": "Overhack",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "when you play this card declare a card type (mage, value, sentinel); then draw a card. if the card you draw is the declared type inrease all card values on your board by 2.",
+    "imagePath": "/images/cards/081-overhack.png"
+  },
+  {
+    "externalKey": "Overtake",
+    "name": "Overtake",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "When you play this card prevent both players from playing any more cards and go to this turn’s damage calculation.",
+    "imagePath": "/images/cards/082-overtake.png"
+  },
+  {
+    "externalKey": "Owl",
+    "name": "Owl",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Both players shuffle their hands into their decks. Then your opponent draws 4 cards and you draw 5.",
+    "imagePath": "/images/cards/083-owl.png"
+  },
+  {
+    "externalKey": "Perfect calm",
+    "name": "perfect calm",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "gain 5 shield. (shield is treated as health points, but at the end of this turn´s damage calculation you lose all shield you gained from all sources)",
+    "imagePath": "/images/cards/084-perfect-calm.png"
+  },
+  {
+    "externalKey": "Perfect parry",
+    "name": "perfect parry",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "If your opponent played a card with the same value as your last played card (Defense or Attack), double the value of your next played card.",
+    "imagePath": "/images/cards/085-perfect-parry.png"
+  },
+  {
+    "externalKey": "Powderpelt penny",
+    "name": "powderpelt penny",
+    "type": "effect_Attack",
+    "baseValue": 6,
+    "description": "For every card played by either player decrease this card’s value by 1.",
+    "imagePath": "/images/cards/086-powderpelt-penny.png"
+  },
+  {
+    "externalKey": "Profit",
+    "name": "Profit",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Look at the top 4 cards of your deck. Discard one of them, put one of them into your hand and return the rest to the bottom of your deck.",
+    "imagePath": "/images/cards/087-profit.png"
+  },
+  {
+    "externalKey": "prophet",
+    "name": "Prophet",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Look at the top 5 cards of your opponent’s deck. Discard any mage cards you find to your opponent’s discard pile.",
+    "imagePath": "/images/cards/088-prophet.png"
+  },
+  {
+    "externalKey": "Rej aura",
+    "name": "Rej Aura",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Restore 2 Health Points. If a Mage card is in your hand, restore an additional 1 Health Point.",
+    "imagePath": "/images/cards/089-rej-aura.png"
+  },
+  {
+    "externalKey": "Rina",
+    "name": "Rina",
+    "type": "Defense",
+    "baseValue": 2,
+    "description": "Rina was a young orphan when Atlas found her.\nUnder his training she learned the quick ways of the bow.\nNow she fires enchanted flying arrows that pierce and always catch their prey.",
+    "imagePath": "/images/cards/090-rina.png"
+  },
+  {
+    "externalKey": "Round all day every day",
+    "name": "round all day every day",
+    "type": "sentinel",
+    "baseValue": -99,
+    "description": "(Sentinel) If you have \"Vismal the Aggression\" on your board, reduce the value of all cards on your opponent’s board by 2. Any card whose value drops below 1 is removed.",
+    "imagePath": "/images/cards/091-round-all-day-every-day.png"
+  },
+  {
+    "externalKey": "Sacred ashes",
+    "name": "sacred ashes",
+    "type": "effect",
+    "baseValue": 0,
+    "description": "This card starts with 5 “Awakening” counters on it. During every damage calculation while this card is on the board remove one “Awakening” counter from it. When the final “Awakening” counter is removed from this card search your deck, discard pile, or hand for “Enflamed Serpent of the Sacred Ashes” and play it to your board replacing this card with it.",
+    "imagePath": "/images/cards/092-sacred-ashes.png"
+  },
+  {
+    "externalKey": "Sacred springs",
+    "name": "sacred springs",
+    "type": "mage",
+    "baseValue": -100,
+    "description": "This card starts on the board with 0 stacks of 'Sacred Salvation'. Every time you gain shield while this card is on the board add a stack of 'Sacred Salvation' to it. If this card has 8 stacks of 'Sacred Salvation' you win the game.",
+    "imagePath": "/images/cards/093-sacred-springs.png"
+  },
+  {
+    "externalKey": "Salan",
+    "name": "Salan",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "The next Mage card you play from your hand activates its effect twice.\r\n(This card’s effect transfers onto the next turn for activation and this card cannot affect Mage cards that stay on the board.)",
+    "imagePath": "/images/cards/094-salan.png"
+  },
+  {
+    "externalKey": "Samuel",
+    "name": "Samuel",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "(BOARD) At the end of every damage calculation, you may draw a card.",
+    "imagePath": "/images/cards/095-samuel.png"
+  },
+  {
+    "externalKey": "Serpent sacred ashes",
+    "name": "serpent of the sacred ashes",
+    "type": "effect_Attack",
+    "baseValue": 12,
+    "description": "This card can only be played to your board with the card effect of “The Enflamed Sacred Ashes”. This card can not be removed from your board.",
+    "imagePath": "/images/cards/096-serpent-of-the-sacred-ashes.png"
+  },
+  {
+    "externalKey": "Shadow",
+    "name": "Shadow",
+    "type": "Attack",
+    "baseValue": 2,
+    "description": "Vahlen’s most decorated assassin.\nHis mission is simple: remove all and anyone who dares smith the souls of those gone on the fields of battle.",
+    "imagePath": "/images/cards/097-shadow.png"
+  },
+  {
+    "externalKey": "Shake my hand",
+    "name": "shake my hand",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "when you play this card lose 2 health points and discard 1 card from the top of your deck. if you do, search your deck for any effect card with a value, reveal it and add it to your hand.",
+    "imagePath": "/images/cards/098-shake-my-hand.png"
+  },
+  {
+    "externalKey": "Shield of atlas",
+    "name": "shild of atlas",
+    "type": "sentinel",
+    "baseValue": -99,
+    "description": "(Sentinel) If you have \"Paladin Atlas\" on your board, your opponent shuffles their hand into their deck and draws 2 cards that they must show to you. If either drawn card is a mage card, heal yourself for 2.",
+    "imagePath": "/images/cards/099-shild-of-atlas.png"
+  },
+  {
+    "externalKey": "Signardir",
+    "name": "Signardir",
+    "type": "Defense",
+    "baseValue": 2,
+    "description": "When your entire village is made up of engineers and inventors with no trace of magic, owning a floating shield that obeys your every command is a surefire way to get yourself exiled.",
+    "imagePath": "/images/cards/100-signardir.png"
+  },
+  {
+    "externalKey": "Snugam",
+    "name": "Snugam",
+    "type": "effect_Attack",
+    "baseValue": 0,
+    "description": "This card’s value is determined by the roll of a six sided die.",
+    "imagePath": "/images/cards/101-snugam.png"
+  },
+  {
+    "externalKey": "SoulSteal",
+    "name": "SoulSteal",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Deal 1 damage to your opponent and restore 1 Health Point.",
+    "imagePath": "/images/cards/102-soulsteal.png"
+  },
+  {
+    "externalKey": "Spirits awaken",
+    "name": "spirits awaken",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "during this turn you may play 2 cards with a value.",
+    "imagePath": "/images/cards/103-spirits-awaken.png"
+  },
+  {
+    "externalKey": "Steve",
+    "name": "Steve",
+    "type": "effect_Attack",
+    "baseValue": 0,
+    "description": "Every time you play a mage card, increase this card’s value by 1.",
+    "imagePath": "/images/cards/104-steve.png"
+  },
+  {
+    "externalKey": "Sylvia",
+    "name": "Sylvia",
+    "type": "effect_Defense",
+    "baseValue": 1,
+    "description": "When this card is played, restore 3 health points.",
+    "imagePath": "/images/cards/105-sylvia.png"
+  },
+  {
+    "externalKey": "Synruna",
+    "name": "Synruna",
+    "type": "effect_Defense",
+    "baseValue": 1,
+    "description": "While this card is on the board, if your opponent would restore health points, they restore half that amount instead (rounded up).",
+    "imagePath": "/images/cards/106-synruna.png"
+  },
+  {
+    "externalKey": "System override",
+    "name": "system override",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "look at the top 3 cards of your deck. return them to the top of the deck in any order.",
+    "imagePath": "/images/cards/107-system-override.png"
+  },
+  {
+    "externalKey": "Teachings of the master",
+    "name": "teachings of the master",
+    "type": "mage_Defense",
+    "baseValue": -102,
+    "description": "(BOARD) Treat this card, while it is on the board, as a defense value 2 card with no effect. If you have no other cards with an effect on your board when this card is played both players discard their hand and draw 3 cards.",
+    "imagePath": "/images/cards/108-teachings-of-the-master.png"
+  },
+  {
+    "externalKey": "Teleport",
+    "name": "Teleport",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Return target opponent’s card to their deck.",
+    "imagePath": "/images/cards/109-teleport.png"
+  },
+  {
+    "externalKey": "Teron",
+    "name": "Teron",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "(BOARD) At the end of every damage calculation roll a D6. On a roll of 4 or higher discard the top card of your opponent’s deck.",
+    "imagePath": "/images/cards/110-teron.png"
+  },
+  {
+    "externalKey": "Time Bend",
+    "name": "Time Bend",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Return a card from your discard pile to your hand. If a Mage card is in your hand, additionally add a card from either discard pile to your hand.",
+    "imagePath": "/images/cards/111-time-bend.png"
+  },
+  {
+    "externalKey": "Ukuhul s arise",
+    "name": "Ukuhul Arise",
+    "type": "sentinel",
+    "baseValue": -99,
+    "description": "(Sentinel) If you have \"Uk’Uhul\" on your board, search your discard pile for up to 4 cards and add them to your hand.",
+    "imagePath": "/images/cards/112-ukuhul-arise.png"
+  },
+  {
+    "externalKey": "Ukuhul",
+    "name": "Ukuhul",
+    "type": "Attack",
+    "baseValue": 3,
+    "description": "Uk’Uhul is the central construct of darkness. A massive hulking giant made up of thousands of souls that scream to be released from the chains of this world.",
+    "imagePath": "/images/cards/113-ukuhul.png"
+  },
+  {
+    "externalKey": "Umbria",
+    "name": "Umbria",
+    "type": "Defense",
+    "baseValue": 2,
+    "description": "What do you get when you combine a genius misled inventor with a rogue AI that has direct access to her prefrontal cortex? Trouble.",
+    "imagePath": "/images/cards/114-umbria.png"
+  },
+  {
+    "externalKey": "Un Ungrun",
+    "name": "UnUngrun",
+    "type": "Defense",
+    "baseValue": 2,
+    "description": "Flip a coin. If you get heads, search your deck for a card and add it to your hand.\nIf you get tails, you take 1 damage.",
+    "imagePath": "/images/cards/115-unungrun.png"
+  },
+  {
+    "externalKey": "Unending anguish",
+    "name": "unending anguish",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Discard 4 cards from the top of your deck. if you discard any mage cards in this way you restore 1 health point and your opponent takes 1 damage.",
+    "imagePath": "/images/cards/116-unending-anguish.png"
+  },
+  {
+    "externalKey": "unstable dilation",
+    "name": "unstable dilation",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Flip a coin. If you get heads, search your deck for a card and add it to your hand. If you get tails, you take 1 damage.",
+    "imagePath": "/images/cards/117-unstable-dilation.png"
+  },
+  {
+    "externalKey": "Valerimona",
+    "name": "Valerimona",
+    "type": "Defense",
+    "baseValue": 3,
+    "description": "Valerimona is the soul of the ancient magic that resides in all things, before arcana zero, before the nexus became the reason of existance, she was there. And she knows...",
+    "imagePath": "/images/cards/118-valerimona.png"
+  },
+  {
+    "externalKey": "Valeris Ignis",
+    "name": "Valeris Ignis",
+    "type": "sentinel",
+    "baseValue": -99,
+    "description": "(Sentinel) if you have \"Valerimona the scroll of ancients\" on your board, the next card you play that has an effect, either mage card or a card with a value, activates it´s effect twice.",
+    "imagePath": "/images/cards/119-valeris-ignis.png"
+  },
+  {
+    "externalKey": "Venom Of Enterna",
+    "name": "Venom of terrna",
+    "type": "sentinel",
+    "baseValue": -99,
+    "description": "(Sentinel) While \"En’Terrna\" is on your board, your opponent gains 1 poison counter each time they heal. During damage calculation, they take 1 damage per poison counter.",
+    "imagePath": "/images/cards/120-venom-of-terrna.png"
+  },
+  {
+    "externalKey": "Vismal",
+    "name": "Vismal",
+    "type": "Attack",
+    "baseValue": 3,
+    "description": "Vismal is Salan’s best friend and partner in crime. He loves to cause havoc more than he loves to eat. A legend says he once ate an entire goat in one sitting. He is a mouse.",
+    "imagePath": "/images/cards/121-vismal.png"
+  },
+  {
+    "externalKey": "Wish of soul",
+    "name": "Wish",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "Roll a D6. On a roll of 2 draw a card, on a roll of 4 restore 4 Health Points.\nOn a roll of 6 select a card on your board and double its value. On a roll of 1, 3, and 5 nothing happens.",
+    "imagePath": "/images/cards/122-wish.png"
+  },
+  {
+    "externalKey": "Yasmin",
+    "name": "Yasmin",
+    "type": "mage",
+    "baseValue": -99,
+    "description": "If your opponent has more Mage cards in their discard pile than you, they must roll a D6 for each excess Mage card.\nOn a roll of 4 or higher, they take 1 damage for each successful roll.",
+    "imagePath": "/images/cards/123-yasmin.png"
+  },
+  {
+    "externalKey": "Zahra",
+    "name": "Zahra",
+    "type": "effect_Defense",
+    "baseValue": 0,
+    "description": "For every empty space on both player’s boards increase this card’s value by 1.",
+    "imagePath": "/images/cards/124-zahra.png"
+  }
+]

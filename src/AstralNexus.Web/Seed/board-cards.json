@@ -1,0 +1,62 @@
+[
+  {
+    "externalKey": "Celestials",
+    "name": "Celestials",
+    "description": "The first player to accumulate a total of 10 Attack Score adds this card to their board as their fifth card. While on the board, treat this card as a permanent Attack card with no effect and a value of 5. This card cannot be removed, replaced, negated, or interacted with in any way.",
+    "imagePath": "/images/board-cards/01-celestials.png"
+  },
+  {
+    "externalKey": "Divergent timeline",
+    "name": "Divergent timeline",
+    "description": "After either player plays a card, roll a D3. On a roll of 3 return the played card to the hand and their opponent picks a random card from their hand that will be played instead.",
+    "imagePath": "/images/board-cards/02-divergent-timeline.png"
+  },
+  {
+    "externalKey": "Eternal Darkness",
+    "name": "Eternal Darkness",
+    "description": "At the end of every damage calculation, the player that has less cards with a value of 2 on their board must discard a card from the top of their deck and a card from their hand.",
+    "imagePath": "/images/board-cards/03-eternal-darkness.png"
+  },
+  {
+    "externalKey": "Goblin Shooter",
+    "name": "Goblin Shooter",
+    "description": "Every time a player plays a card with a value of 2 to their board, they may remove a card from their opponent's board.",
+    "imagePath": "/images/board-cards/04-goblin-shooter.png"
+  },
+  {
+    "externalKey": "Kingdom of vahlen",
+    "name": "Kingdom of vahlen",
+    "description": "When you play a card with a value of 2 to your board, all cards on your board have their values increased by 1.",
+    "imagePath": "/images/board-cards/05-kingdom-of-vahlen.png"
+  },
+  {
+    "externalKey": "Merchant",
+    "name": "Merchant",
+    "description": "At any point during the game you may shuffle your hand back into your deck and draw 5 cards. (Both players may only choose to do this once)",
+    "imagePath": "/images/board-cards/06-merchant.png"
+  },
+  {
+    "externalKey": "Molten",
+    "name": "Molten Sea",
+    "description": "After the second turn, both players lose 2 health points at the end of damage calculation.",
+    "imagePath": "/images/board-cards/07-molten-sea.png"
+  },
+  {
+    "externalKey": "Planes Of Jade",
+    "name": "Planes of Jade",
+    "description": "Immediately after either player plays a card with a value of 2 to their board, they add a stack of 'Jade' to this card. Once this card has 5 stacks on it, the player that added the last stack gains 'Inner Peace'. During damage calculation, the player with 'Inner Peace' deals damage to their opponent before their opponent deals damage to them.",
+    "imagePath": "/images/board-cards/08-planes-of-jade.png"
+  },
+  {
+    "externalKey": "Tunnels Of skandrir",
+    "name": "Tunnels",
+    "description": "When you play a card with a value of 2 to your board, you may switch a defense type card to the attack type.",
+    "imagePath": "/images/board-cards/09-tunnels.png"
+  },
+  {
+    "externalKey": "Vault of the world",
+    "name": "Vault of the world",
+    "description": "At the start of the game both players move 4 cards from the top of their deck to the side. Every time a player plays a card with a value of 2 to their board, they draw one of these cards from their pile.",
+    "imagePath": "/images/board-cards/10-vault-of-the-world.png"
+  }
+]

@@ -1,0 +1,50 @@
+@model IReadOnlyList<Deck>
+@{
+    ViewData["Title"] = "Špilovi";
+}
+<section class="page-heading">
+    <div>
+        <div class="eyebrow">DECK MANAGEMENT</div>
+        <h1>Moji špilovi</h1>
+        <p class="muted">CRUD nad špilovima spremljenim u Microsoft SQL Server.</p>
+    </div>
+    <a class="button" asp-action="Create">+ Novi špil</a>
+</section>
+
+@if (Model.Count == 0)
+{
+    <section class="panel empty-state">
+        <h2>Nema spremljenih špilova</h2>
+        <p>Kreirajte prvi špil od tačno 20 karata.</p>
+        <a class="button" asp-action="Create">Otvori Deck Builder</a>
+    </section>
+}
+else
+{
+    <section class="deck-list">
+        @foreach (var deck in Model)
+        {
+            <article class="panel deck-row">
+                <div>
+                    <div class="eyebrow">@deck.Cards.Count KARATA</div>
+                    <h2>@deck.Name</h2>
+                    <p class="muted">
+                        Ažurirano @deck.UpdatedAtUtc.ToLocalTime().ToString("dd.MM.yyyy HH:mm")
+                    </p>
+                </div>
+                <div class="deck-status">
+                    <span class="result-badge @(deck.IsValid ? "win" : "loss")">
+                        @(deck.IsValid ? "VALIDAN" : "NEVALIDAN")
+                    </span>
+                </div>
+                <div class="row-actions">
+                    <a class="button small" asp-action="Details" asp-route-id="@deck.Id">Pregled</a>
+                    <a class="button secondary small" asp-action="Edit" asp-route-id="@deck.Id">Uredi</a>
+                    <form asp-action="Delete" asp-route-id="@deck.Id" method="post">
+                        <button class="button danger small" type="submit">Obriši</button>
+                    </form>
+                </div>
+            </article>
+        }
+    </section>
+}

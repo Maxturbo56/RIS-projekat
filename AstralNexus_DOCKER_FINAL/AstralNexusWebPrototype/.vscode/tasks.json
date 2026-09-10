@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Docker: Start full stack",
+      "type": "shell",
+      "command": "docker compose up --build -d",
+      "problemMatcher": []
+    },
+    {
+      "label": "Docker: Stop full stack",
+      "type": "shell",
+      "command": "docker compose down",
+      "problemMatcher": []
+    },
+    {
+      "label": "Local dev: Start SQL Server only",
+      "type": "shell",
+      "command": "docker compose up -d sqlserver",
+      "problemMatcher": []
+    },
+    {
+      "label": "Local dev: Run Astral Nexus",
+      "type": "shell",
+      "command": "dotnet run --project src/AstralNexus.Web/AstralNexus.Web.csproj",
+      "problemMatcher": "$msCompile",
+      "isBackground": true
+    }
+  ]
+}

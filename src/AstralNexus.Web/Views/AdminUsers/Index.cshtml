@@ -1,0 +1,63 @@
+@model IReadOnlyList<ApplicationUser>
+@{
+    ViewData["Title"] = "Admin · Korisnici";
+}
+<section class="page-heading">
+    <div>
+        <div class="eyebrow">USER MANAGEMENT</div>
+        <h1>Korisnici</h1>
+        <p class="muted">Uloge, coini i osnovna statistika korisnika.</p>
+    </div>
+    <a class="button ghost" asp-controller="Admin" asp-action="Index">Admin dashboard</a>
+</section>
+
+<section class="panel table-panel">
+    <div class="table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Korisnik</th>
+                    <th>Uloga</th>
+                    <th>Coina</th>
+                    <th>Kolekcija</th>
+                    <th>Špilovi</th>
+                    <th>Mečevi</th>
+                    <th>Akcije</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>
+                        <strong>@user.UserName</strong>
+                        <small class="table-sub">@user.Email</small>
+                    </td>
+                    <td><span class="result-badge @(user.Role == "Admin" ? "admin" : "")">@user.Role</span></td>
+                    <td>◈ @user.Coins</td>
+                    <td>@user.Collection.Count</td>
+                    <td>@user.Decks.Count</td>
+                    <td>@user.Matches.Count</td>
+                    <td>
+                        <div class="admin-user-actions">
+                            <form asp-action="GrantCoins" method="post">
+                                <input type="hidden" name="id" value="@user.Id" />
+                                <input class="tiny-input" type="number" name="amount" value="100" />
+                                <button class="button small" type="submit">Coinsi</button>
+                            </form>
+                            <form asp-action="ToggleRole" method="post">
+                                <input type="hidden" name="id" value="@user.Id" />
+                                <button class="button secondary small" type="submit">Promijeni ulogu</button>
+                            </form>
+                            <form asp-action="Delete" method="post">
+                                <input type="hidden" name="id" value="@user.Id" />
+                                <button class="button danger small" type="submit">Obriši</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</section>

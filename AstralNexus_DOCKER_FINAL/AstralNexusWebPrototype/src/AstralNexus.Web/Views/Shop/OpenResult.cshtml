@@ -1,0 +1,30 @@
+@model PackOpenResultViewModel
+@{
+    ViewData["Title"] = "Otvoren paket";
+}
+<section class="page-heading centered-heading">
+    <div>
+        <div class="eyebrow">PACK OPENED</div>
+        <h1>Vaše nove karte</h1>
+        <p class="muted">
+            Potrošeno @Model.Cost coina · vraćeno @Model.DuplicateCoins od duplikata · stanje @Model.RemainingCoins
+        </p>
+    </div>
+</section>
+
+<section class="pack-result-grid">
+    @foreach (var item in Model.Cards)
+    {
+        <article class="reveal-card @(item.WasDuplicate ? "duplicate" : "new-card")">
+            <div class="reveal-label">@(item.WasDuplicate ? "DUPLIKAT +1 ◈" : "NOVA KARTA")</div>
+            <img src="@item.Card.ImagePath" alt="@item.Card.Name" />
+            <h2>@item.Card.Name</h2>
+            <p>@item.Card.Type · @(item.Card.BaseValue == -99 ? "—" : item.Card.BaseValue)</p>
+        </article>
+    }
+</section>
+
+<div class="center-actions">
+    <a class="button" asp-action="Index">Otvori još jedan paket</a>
+    <a class="button secondary" asp-controller="Collection" asp-action="Index">Moja kolekcija</a>
+</div>

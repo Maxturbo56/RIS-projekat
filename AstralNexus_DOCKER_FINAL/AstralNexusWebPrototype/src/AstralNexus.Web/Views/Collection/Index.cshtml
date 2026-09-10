@@ -1,0 +1,75 @@
+@model CollectionViewModel
+@{
+    ViewData["Title"] = "Kolekcija";
+}
+<section class="page-heading">
+    <div>
+        <div class="eyebrow">PLAYER COLLECTION</div>
+        <h1>Moja kolekcija</h1>
+        <p class="muted">@Model.Cards.Count prikazanih karata · ◈ @Model.Coins coina</p>
+    </div>
+</section>
+
+<form class="filter-bar" method="get">
+    <input type="search" name="search" value="@Model.Search" placeholder="Pretraži naziv ili opis..." />
+    <select name="type">
+        <option value="">Svi tipovi</option>
+        @foreach (var item in Model.Types)
+        {
+            if (Model.Type == item)
+            {
+                <option value="@item" selected>@item</option>
+            }
+            else
+            {
+                <option value="@item">@item</option>
+            }
+        }
+    </select>
+    <select name="value">
+        <option value="">Sve vrijednosti</option>
+        @foreach (var item in Model.Values)
+        {
+            if (Model.Value == item)
+            {
+                <option value="@item" selected>@(item == -99 ? "bez vrijednosti" : item)</option>
+            }
+            else
+            {
+                <option value="@item">@(item == -99 ? "bez vrijednosti" : item)</option>
+            }
+        }
+    </select>
+    <button class="button small" type="submit">Filtriraj</button>
+    <a class="button ghost small" asp-action="Index">Reset</a>
+</form>
+
+@if (Model.Cards.Count == 0)
+{
+    <section class="panel empty-state">
+        <h2>Nema rezultata</h2>
+        <p>Promijenite filter ili otvorite paket da proširite kolekciju.</p>
+    </section>
+}
+else
+{
+    <section class="card-grid">
+        @foreach (var owned in Model.Cards)
+        {
+            <article class="game-card">
+                <div class="card-image-wrap">
+                    <img src="@owned.Card.ImagePath" alt="@owned.Card.Name" loading="lazy" />
+                    <span class="quantity">×@owned.Quantity</span>
+                </div>
+                <div class="card-copy">
+                    <div class="card-meta">
+                        <span>@owned.Card.Type</span>
+                        <span>@(owned.Card.BaseValue == -99 ? "—" : owned.Card.BaseValue)</span>
+                    </div>
+                    <h2>@owned.Card.Name</h2>
+                    <p>@owned.Card.Description</p>
+                </div>
+            </article>
+        }
+    </section>
+}

@@ -1,0 +1,46 @@
+@model ProfileViewModel
+@{
+    ViewData["Title"] = "Profil";
+}
+<section class="page-heading">
+    <div>
+        <div class="eyebrow">USER PROFILE</div>
+        <h1>@Model.DisplayName</h1>
+        <p class="muted">Profil kreiran @Model.CreatedAtUtc.ToLocalTime().ToString("dd.MM.yyyy")</p>
+    </div>
+    <a class="button secondary" asp-action="Settings">Postavke</a>
+</section>
+
+<div class="two-column profile-layout">
+    <form class="panel" asp-action="Index" method="post">
+        <h2>Lični podaci</h2>
+        <div asp-validation-summary="All" class="validation"></div>
+
+        <label>Korisničko ime</label>
+        <input value="@Model.UserName" readonly />
+
+        <label>Email</label>
+        <input value="@Model.Email" readonly />
+
+        <label asp-for="DisplayName"></label>
+        <input asp-for="DisplayName" />
+        <span asp-validation-for="DisplayName" class="validation"></span>
+
+        <label asp-for="Bio"></label>
+        <textarea asp-for="Bio" rows="6" placeholder="Kratak opis profila..."></textarea>
+        <span asp-validation-for="Bio" class="validation"></span>
+
+        <button class="button" type="submit">Spremi profil</button>
+    </form>
+
+    <section class="panel">
+        <h2>Statistika profila</h2>
+        <div class="profile-stats">
+            <div><span>Coina</span><strong>◈ @Model.Coins</strong></div>
+            <div><span>Karata</span><strong>@Model.OwnedCards</strong></div>
+            <div><span>Špilova</span><strong>@Model.Decks</strong></div>
+            <div><span>Pobjede</span><strong>@Model.Wins</strong></div>
+            <div><span>Porazi</span><strong>@Model.Losses</strong></div>
+        </div>
+    </section>
+</div>

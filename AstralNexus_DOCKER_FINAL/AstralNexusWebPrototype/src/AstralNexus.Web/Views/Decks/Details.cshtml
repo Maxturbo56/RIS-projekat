@@ -1,0 +1,42 @@
+@model Deck
+@{
+    ViewData["Title"] = Model.Name;
+    var cards = Model.Cards.OrderBy(x => x.SortOrder).Select(x => x.Card).ToList();
+}
+<section class="page-heading">
+    <div>
+        <div class="eyebrow">DECK DETAILS</div>
+        <h1>@Model.Name</h1>
+        <p class="muted">@cards.Count/20 karata · @(Model.IsValid ? "validan špil" : "nevalidan špil")</p>
+    </div>
+    <div class="row-actions">
+        <a class="button secondary" asp-action="Edit" asp-route-id="@Model.Id">Uredi</a>
+        <a class="button ghost" asp-action="Index">Nazad</a>
+    </div>
+</section>
+
+<section class="rule-strip">
+    <span>Value 3: <strong>@cards.Count(x => x.BaseValue == 3)/3</strong></span>
+    <span>Mage: <strong>@cards.Count(x => x.Type.Contains("mage", StringComparison.OrdinalIgnoreCase))/8</strong></span>
+    <span>Sentinel: <strong>@cards.Count(x => x.Type.Equals("sentinel", StringComparison.OrdinalIgnoreCase))/1</strong></span>
+    <span>Effect: <strong>@cards.Count(x => x.Type.Contains("effect", StringComparison.OrdinalIgnoreCase))/5</strong></span>
+</section>
+
+<section class="card-grid compact-grid">
+    @foreach (var card in cards)
+    {
+        <article class="game-card">
+            <div class="card-image-wrap">
+                <img src="@card.ImagePath" alt="@card.Name" />
+            </div>
+            <div class="card-copy">
+                <div class="card-meta">
+                    <span>@card.Type</span>
+                    <span>@(card.BaseValue == -99 ? "—" : card.BaseValue)</span>
+                </div>
+                <h2>@card.Name</h2>
+                <p>@card.Description</p>
+            </div>
+        </article>
+    }
+</section>

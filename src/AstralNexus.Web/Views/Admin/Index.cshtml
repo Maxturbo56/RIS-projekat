@@ -1,0 +1,80 @@
+@model AdminDashboardViewModel
+@{
+    ViewData["Title"] = "Admin";
+}
+<section class="page-heading">
+    <div>
+        <div class="eyebrow">SYSTEM CONTROL PANEL</div>
+        <h1>Upravljačka ploča</h1>
+        <p class="muted">Administracija ASP.NET Core / SQL Server sistema.</p>
+    </div>
+    <div class="row-actions">
+        <a class="button" asp-controller="AdminCards" asp-action="Index">Upravljaj kartama</a>
+        <a class="button secondary" asp-controller="AdminUsers" asp-action="Index">Korisnici</a>
+    </div>
+</section>
+
+<section class="stat-grid">
+    <article class="stat-card"><span>Korisnici</span><strong>@Model.Users</strong><small>registrirani profili</small></article>
+    <article class="stat-card"><span>Karte</span><strong>@Model.Cards</strong><small>SQL Cards tabela</small></article>
+    <article class="stat-card"><span>Špilovi</span><strong>@Model.Decks</strong><small>spremljeni deckovi</small></article>
+    <article class="stat-card"><span>Mečevi</span><strong>@Model.Matches</strong><small>historija rezultata</small></article>
+    <article class="stat-card"><span>Paketi</span><strong>@Model.PackOpenings</strong><small>otvaranja paketa</small></article>
+</section>
+
+<div class="two-column">
+    <section class="panel">
+        <div class="section-title">
+            <h2>Novi korisnici</h2>
+            <a asp-controller="AdminUsers" asp-action="Index">Svi korisnici →</a>
+        </div>
+        <div class="data-list">
+            @foreach (var user in Model.RecentUsers)
+            {
+                <div class="data-row">
+                    <span class="result-badge @(user.Role == "Admin" ? "admin" : "")">@user.Role</span>
+                    <div>
+                        <strong>@user.UserName</strong>
+                        <small>@user.Email</small>
+                    </div>
+                    <time>@user.CreatedAtUtc.ToLocalTime().ToString("dd.MM.yyyy")</time>
+                </div>
+            }
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="section-title">
+            <h2>Posljednji mečevi</h2>
+        </div>
+        <div class="data-list">
+            @foreach (var match in Model.RecentMatches)
+            {
+                <div class="data-row">
+                    <span class="result-badge @(match.Result == "Win" ? "win" : "loss")">@match.Result</span>
+                    <div>
+                        <strong>@match.User.UserName · @(match.Deck?.Name ?? "obrisani špil")</strong>
+                        <small>@match.TurnsPlayed poteza · +@match.CoinsAwarded ◈</small>
+                    </div>
+                    <time>@match.PlayedAtUtc.ToLocalTime().ToString("dd.MM HH:mm")</time>
+                </div>
+            }
+        </div>
+    </section>
+</div>
+
+<section class="panel">
+    <h2>REST backend</h2>
+    <p class="muted">
+        API endpointi koriste isti C# service/data layer i SQL Server bazu.
+        Prijavljeni korisnici mogu koristiti collection, decks i stats endpoint-e.
+    </p>
+    <div class="api-grid">
+        <code>GET /api/cards</code>
+        <code>GET /api/cards/{id}</code>
+        <code>GET /api/collection</code>
+        <code>GET /api/decks</code>
+        <code>POST /api/decks</code>
+        <code>GET /api/stats</code>
+    </div>
+</section>

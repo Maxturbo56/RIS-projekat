@@ -1,0 +1,43 @@
+@{
+    ViewData["Title"] = "Početna";
+}
+<section class="hero">
+    <div class="hero-copy">
+        <div class="eyebrow">SANATA UNIVERSE · WEB PROTOTIP</div>
+        <h1>Astral Nexus</h1>
+        <p>
+            Informacioni sistem za digitalnu kolekcionarsku kartašku igru:
+            korisnici, kolekcija, špilovi, paketi, statistika i upravljačka ploča.
+        </p>
+        <div class="hero-actions">
+            <a class="button" asp-controller="Account" asp-action="Login">Prijavi se</a>
+            <a class="button secondary" asp-controller="Account" asp-action="Register">Kreiraj profil</a>
+        </div>
+        <div class="demo-credentials">
+            <strong>Demo:</strong> demo@astralnexus.local / Demo123!<br />
+            <strong>Admin:</strong> admin@astralnexus.local / Admin123!
+        </div>
+    </div>
+    <div class="hero-art">
+        <img src="~/images/branding/box-art.png" alt="Astral Nexus originalni artwork" />
+    </div>
+</section>
+
+<section class="feature-grid">
+    <article class="panel">
+        <h2>SQL Server</h2>
+        <p>Karte, korisnici, kolekcije, špilovi, mečevi i otvaranja paketa su trajno spremljeni u Microsoft SQL Server.</p>
+    </article>
+    <article class="panel">
+        <h2>C# backend</h2>
+        <p>ASP.NET Core MVC, Entity Framework Core i REST API endpointi implementirani su u C#.</p>
+    </article>
+    <article class="panel">
+        <h2>Upravljačka ploča</h2>
+        <p>Administrator može raditi CRUD nad kartama, upravljati korisnicima i pregledati statistiku sistema.</p>
+    </article>
+    <article class="panel">
+        <h2>Originalna logika</h2>
+        <p>Deck pravila, kolekcija, pack opening, coin nagrade, health counter, dice i coin flip preneseni su iz Unity prototipa.</p>
+    </article>
+</section>

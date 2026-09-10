@@ -1,0 +1,62 @@
+@model IReadOnlyList<Card>
+@{
+    ViewData["Title"] = "Admin · Karte";
+}
+<section class="page-heading">
+    <div>
+        <div class="eyebrow">CARD CRUD</div>
+        <h1>Upravljanje kartama</h1>
+        <p class="muted">@Model.Count karata u trenutnom prikazu.</p>
+    </div>
+    <a class="button" asp-action="Create">+ Nova karta</a>
+</section>
+
+<form class="filter-bar" method="get">
+    <input type="search" name="search" value="@ViewBag.Search" placeholder="Naziv ili tip..." />
+    <button class="button small" type="submit">Pretraži</button>
+    <a class="button ghost small" asp-action="Index">Reset</a>
+</form>
+
+<section class="panel table-panel">
+    <div class="table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Slika</th>
+                    <th>Naziv</th>
+                    <th>Tip</th>
+                    <th>Vrijednost</th>
+                    <th>Status</th>
+                    <th>Akcije</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var card in Model)
+            {
+                <tr>
+                    <td><img class="table-thumb" src="@card.ImagePath" alt="@card.Name" /></td>
+                    <td>
+                        <strong>@card.Name</strong>
+                        <small class="table-sub">@card.ExternalKey</small>
+                    </td>
+                    <td>@card.Type</td>
+                    <td>@(card.BaseValue == -99 ? "—" : card.BaseValue)</td>
+                    <td>
+                        <span class="result-badge @(card.IsActive ? "win" : "loss")">
+                            @(card.IsActive ? "Aktivna" : "Neaktivna")
+                        </span>
+                    </td>
+                    <td>
+                        <div class="row-actions">
+                            <a class="button secondary small" asp-action="Edit" asp-route-id="@card.Id">Edit</a>
+                            <form asp-action="Delete" asp-route-id="@card.Id" method="post">
+                                <button class="button danger small" type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -1,0 +1,32 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Prijava";
+}
+<section class="auth-shell">
+    <form class="panel auth-card" asp-action="Login" method="post">
+        <h1>Prijava</h1>
+        <p class="muted">Pristup kolekciji, špilovima i mečevima.</p>
+
+        <div asp-validation-summary="ModelOnly" class="validation"></div>
+
+        <label asp-for="Login"></label>
+        <input asp-for="Login" autocomplete="username" />
+        <span asp-validation-for="Login" class="validation"></span>
+
+        <label asp-for="Password"></label>
+        <input asp-for="Password" autocomplete="current-password" />
+        <span asp-validation-for="Password" class="validation"></span>
+
+        <label class="checkbox-line">
+            <input asp-for="RememberMe" />
+            <span>Zapamti me</span>
+        </label>
+
+        <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+        <button class="button full" type="submit">Prijava</button>
+
+        <div class="demo-credentials compact">
+            Demo: <strong>demo@astralnexus.local</strong> / <strong>Demo123!</strong>
+        </div>
+    </form>
+</section>
